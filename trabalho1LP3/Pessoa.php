@@ -1,17 +1,18 @@
 <?php
 abstract class Pessoa 
+
 {
     private string $nome;
     private string $cpf;
     private string $sexo; /* medoto set deve ser para impedir mais de 1 caractere */
-    private DateTime $dataNascimento;
+    private Data $dataNascimento;
 
-    public function __construct(string $nome, string $cpf, string $sexo, DateTime $dataNascimento)
+    public function __construct(string $nome, string $cpf, string $sexo, Data $data)
     {
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->sexo = $sexo;
-        $this->dataNascimento = $dataNascimento;
+        $this->dataNascimento = $data;
     }
     public function getNome(): string
     {
@@ -25,7 +26,7 @@ abstract class Pessoa
     {
         return $this->sexo;
     }
-    public function getDataNascimento(): DateTime
+    public function getDataNascimento(): Data
     {
         return $this->dataNascimento;
     }
@@ -46,8 +47,14 @@ abstract class Pessoa
             throw new InvalidArgumentException("O sexo deve ser um único caractere.");
         }
     }
-    public function setDataNascimento(DateTime $dataNascimento): void
+    public function setDataNascimento(Data $dataNascimento): void
     {
         $this->dataNascimento = $dataNascimento;
+    }
+    public function imprimir(){
+        echo "Nome: " . $this->getNome() . "<br>";
+        echo "CPF: " . $this->getCpf() . "<br>";
+        echo "Sexo: " . $this->getSexo() . "<br>";
+        echo "Data de Nascimento: " . $this->getDataNascimento() . "<br>";
     }
 }
