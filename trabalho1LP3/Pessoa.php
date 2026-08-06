@@ -7,12 +7,12 @@ abstract class Pessoa
     private string $sexo; /* medoto set deve ser para impedir mais de 1 caractere */
     private Data $dataNascimento;
 
-    public function __construct(string $nome, string $cpf, string $sexo, Data $data)
+    public function __construct(string $nome, string $cpf, string $sexo, Data $dataNascimento)
     {
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->sexo = $sexo;
-        $this->dataNascimento = $data;
+        $this->dataNascimento = new Data($dataNascimento->getDia(), $dataNascimento->getMes(), $dataNascimento->getAno());
     }
     public function getNome(): string
     {

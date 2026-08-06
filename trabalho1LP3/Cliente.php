@@ -5,6 +5,7 @@ class Cliente extends Pessoa
 {
     private int $dataCadastro;
     private string $preferencias;
+    
 
     public function __construct(string $nome, string $cpf, string $sexo, Data $dataNascimento, int $dataCadastro, string $preferencias)
     {
