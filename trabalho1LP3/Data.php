@@ -20,11 +20,46 @@ class Data{
 
         public function imprimirDataBanco()
         {
-            //Gente Deus me ajude como faz essa parte???
-            echo ('d')/('m')/('y')
+           
+            echo $this->dia . '/' . $this->mes  . '/' . $this->ano;
 
         }
     
+
+        public function getDia()
+        {
+                return $this->dia;
+        }
+        public function setDia($dia)
+        {
+                $this->dia = $dia;
+
+                return $this;
+        }
+
+     
+        public function getMes()
+        {
+                return $this->mes;
+        }
+        public function setMes($mes)
+        {
+                $this->mes = $mes;
+
+                return $this;
+        }
+
+      
+        public function getAno()
+        {
+                return $this->ano;
+        } 
+        public function setAno($ano)
+        {
+                $this->ano = $ano;
+
+                return $this;
+        }
 }
 
 
