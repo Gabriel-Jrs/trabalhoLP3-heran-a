@@ -1,5 +1,5 @@
 <?php 
-    require_once "itemPedido.php"
+    require_once "itemPedido.php";
 
     class Pedido {
  
@@ -9,11 +9,10 @@
     private Vendedor $vendedor;
     private float $valorTotal;
     
-    public function __construct(dateTime $data, Cliente $cliente, Vendedor $vendedor, float $valorTotal) {
+    public function __construct(DateTime $data, Cliente $cliente, Vendedor $vendedor, float $valorTotal) {
         $this->data = $data;
         $this->cliente = $cliente;
-        $this->vendedor = $vendedor;
-        $this->listaItens = [];
+        $this->vendedor = $vendedor;  
         $this->valorTotal = $valorTotal;
     }
      public function getData() {
@@ -55,23 +54,23 @@
     public function setValorTotal(float $valorTotal) {
         $this->valorTotal = $valorTotal;
     }
-}
+
     public function adicionarItem(ItemPedido $item) {
         $this->listaItens[] = $item;
        
     }
- private funciton calcularValorTotal() {
-    total = 0;
+ private function calcularValorTotal() {
+    $total = 0;
     foreach ($this->listaItens as $item) {
         $total += $item->getValor();
     }
     return $total;
  }
- private adicionarComissao(float $comissao) {
-    $desconto = $this->valorTotal * ($comissao / 100);
-    $this->valorTotal -= $desconto;
+ private function adicionarComissao(float $comissao) {
+    $aumento = $this->valorTotal * ($comissao / 100);
+    $this->valorTotal += $aumento;
  }
- public funciton fecharPedido() {
+ public function fecharPedido() {
        $this->valorTotal = $this->calcularValorTotal();
         $this->valorTotal += $this->adicionarComissao();
  }
@@ -86,8 +85,8 @@
         echo "- " . $item->getProduto()->getNome() . ": " . $item->getQuantidade() . " x " . $item->getValor() . "\n";
     }
     echo "Valor Total: " . $this->valorTotal . "\n";
-}
-
+    }
+    }
 
 
 
